@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027e1600f0c45314cb2b09c7d2b45586, type: 3}
+  m_Name: __actions_DragonGrabMode
+  m_EditorClassIdentifier: 
+  allActions:
+  - {fileID: 11400000, guid: 6adf68d7dd9450845ab3052f11c1a8c4, type: 2}
+  - {fileID: 11400000, guid: dfab8f7286e38b443b185574eef9dd35, type: 2}
+  - {fileID: 11400000, guid: 9b4ca67045deed540bc7ef569c9b4451, type: 2}
+  nonVisualInActions:
+  - {fileID: 11400000, guid: 6adf68d7dd9450845ab3052f11c1a8c4, type: 2}
+  - {fileID: 11400000, guid: dfab8f7286e38b443b185574eef9dd35, type: 2}
+  visualActions: []
+  poseActions: []
+  skeletonActions: []
+  outActionArray:
+  - {fileID: 11400000, guid: 9b4ca67045deed540bc7ef569c9b4451, type: 2}
+  fullPath: /actions/DragonGrabMode
+  usage: single
+  inActions: {fileID: 11400000, guid: 7458de1a1aca23f458f83fe8876649e8, type: 2}
+  outActions: {fileID: 11400000, guid: 618664eeb89c38e479a7e51572f355ba, type: 2}
