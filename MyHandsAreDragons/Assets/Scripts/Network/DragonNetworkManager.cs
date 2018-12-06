@@ -10,7 +10,7 @@ public class DragonNetworkManager : NetworkManager
 
     private bool isDedicatedServer;
 
-    private void Awake()
+    private void Start()
     {
         //Check if instance already exists
         if (instance == null)
@@ -20,10 +20,7 @@ public class DragonNetworkManager : NetworkManager
         else if (instance != this)
             //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager
             Destroy(gameObject);
-    }
 
-    private void Start()
-    {
         Connect();
     }
 
