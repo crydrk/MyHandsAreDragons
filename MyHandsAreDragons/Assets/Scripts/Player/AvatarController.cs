@@ -28,4 +28,12 @@ public class AvatarController : NetworkBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (isLocalPlayer)
+        {
+            Debug.Log("it's the local player");
+        }
+    }
+
 }
