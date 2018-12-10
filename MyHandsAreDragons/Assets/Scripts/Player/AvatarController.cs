@@ -46,55 +46,24 @@ public class AvatarController : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            SetPlayerTransforms();
+            CmdSyncPlayerTransforms(Head.position, Head.rotation, HandLeft.position, HandLeft.rotation, HandRight.position, HandRight.rotation);
         }
         else
         {
             GetPlayerTransforms();
         }
     }
-    
-    private void SetPlayerTransforms()
+
+    [Command]
+    private void CmdSyncPlayerTransforms(Vector3 aHeadPos, Quaternion aHeadRot, Vector3 aLeftHandPos, Quaternion aLeftHandRot, Vector3 aRightHandPos, Quaternion aRightHandRot)
     {
         // Setting the SyncVar values of the transforms to send across the network
-        // TODO: Confirm if this is necessary: I'm checking the value to make sure it's different before assigning - the
-        // documentation for SyncVar says setting the value for it will make it dirty, so that it will be marked to be sent
-        // over the network. I'm thinking it's more efficient to make sure that the value has changed here rather than
-        // constantly sending everything over the network. This also begs the question of if I assign the same value, does
-        // it still get marked as dirty?
-
-        // Head sync
-        if (headPos != Head.position)
-        {
-            headPos = Head.position;
-        }
-
-        if (headRot != Head.rotation)
-        {
-            headRot = Head.rotation;
-        }
-
-        // Left hand sync
-        if (leftHandPos != HandLeft.position)
-        {
-            leftHandPos = HandLeft.position;
-        }
-
-        if (leftHandRot != HandLeft.rotation)
-        {
-            leftHandRot = HandLeft.rotation;
-        }
-
-        // Right hand sync
-        if (rightHandPos != HandRight.position)
-        {
-            rightHandPos = HandRight.position;
-        }
-
-        if (rightHandRot != HandRight.rotation)
-        {
-            rightHandRot = HandRight.rotation;
-        }
+        headPos = aHeadPos;
+        headRot = aHeadRot;
+        leftHandPos = aLeftHandPos;
+        leftHandRot = aLeftHandRot;
+        rightHandPos = aRightHandPos;
+        rightHandRot = aRightHandRot;
     }
 
     private void GetPlayerTransforms()
