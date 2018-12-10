@@ -17,7 +17,7 @@ public class AvatarController : NetworkBehaviour
     public SteamVR_Behaviour_Pose VRHandLeft;
     public SteamVR_Behaviour_Pose VRHandRight;
 
-    private void Awake()
+    private void Start()
     {
         // If we are not the local player, disable all the VR stuff
         if (!isLocalPlayer)
