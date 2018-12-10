@@ -46,7 +46,7 @@ public class AvatarController : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            SetPlayerTransforms();
+            CmdSetPlayerTransforms();
         }
         else
         {
@@ -54,7 +54,8 @@ public class AvatarController : NetworkBehaviour
         }
     }
     
-    private void SetPlayerTransforms()
+    [Command]
+    private void CmdSetPlayerTransforms()
     {
         // Setting the SyncVar values of the transforms to send across the network
         // TODO: Confirm if this is necessary: I'm checking the value to make sure it's different before assigning - the
