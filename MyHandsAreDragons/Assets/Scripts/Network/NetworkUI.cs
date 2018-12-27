@@ -59,7 +59,7 @@ public class NetworkUI : MonoBehaviour
 
 		int isServer = 0;
 		// If the mode is set to server or the server checkbox is checked
-		if (ServerToggle.isOn || mode == 2)
+		if (ServerToggle.isOn || mode > 0)
 		{
 			isServer = 1;
 		}

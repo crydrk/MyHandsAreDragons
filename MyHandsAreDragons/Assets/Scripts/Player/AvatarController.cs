@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class AvatarController : NetworkBehaviour
 {
-
     // Transforms for positions of objects to be moved on the network
     public Transform Head;
     public Transform HandLeft;
@@ -31,10 +31,19 @@ public class AvatarController : NetworkBehaviour
     [SyncVar]
     private Quaternion rightHandRot;
 
+    // SyncVars for dragon hands
+    [SyncVar]
+    private bool leftHandOpen;
+    [SyncVar]
+    private bool rightHandOpen;
+
+    // Debug stuff
+    public bool OverrideClientServerFunctionality = false;
+    
     private void Start()
     {
         // If we are not the local player, disable all the VR stuff
-        if (!isLocalPlayer)
+        if (!isLocalPlayer && !OverrideClientServerFunctionality)
         {
             VRCamera.enabled = false;
             VRHandLeft.enabled = false;

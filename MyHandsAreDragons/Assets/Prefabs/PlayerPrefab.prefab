@@ -84,6 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4704947763306308}
   - component: {fileID: 114450217327864956}
+  - component: {fileID: 114440081492351926}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -100,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4097336165355730}
   - component: {fileID: 114567250801040800}
-  - component: {fileID: 114093802672986366}
+  - component: {fileID: 114933795146091202}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Untagged
@@ -660,6 +661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4503090363118144}
   - component: {fileID: 114191828593803394}
+  - component: {fileID: 114281141277820412}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -1592,23 +1594,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114093802672986366
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1134456589013408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a38ae0080da465e409500adf06c9e322, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Head: {fileID: 4539508069253696}
-  HandLeft: {fileID: 4704947763306308}
-  HandRight: {fileID: 4503090363118144}
-  VRCamera: {fileID: 20479852545194772}
-  VRHandLeft: {fileID: 114450217327864956}
-  VRHandRight: {fileID: 114191828593803394}
 --- !u!114 &114116429927813054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1627,14 +1612,14 @@ MonoBehaviour:
   size: 0
   color: {r: 0, g: 1, b: 1, a: 1}
   vertices:
-  - {x: 1.1500001, y: 0.01, z: -0.75000024}
-  - {x: -1.1500001, y: 0.01, z: -0.75000024}
-  - {x: -1.1500001, y: 0.01, z: 0.75000024}
-  - {x: 1.1500001, y: 0.01, z: 0.75000024}
-  - {x: 1.3000001, y: 0.01, z: -0.9000002}
-  - {x: -1.3000001, y: 0.01, z: -0.9000002}
-  - {x: -1.3000001, y: 0.01, z: 0.9000002}
-  - {x: 1.3000001, y: 0.01, z: 0.9000002}
+  - {x: 1.1000005, y: 0.01, z: -1.1000006}
+  - {x: -1.1000005, y: 0.01, z: -1.1000006}
+  - {x: -1.1000005, y: 0.01, z: 1.1000006}
+  - {x: 1.1000005, y: 0.01, z: 1.1000006}
+  - {x: 1.2500005, y: 0.01, z: -1.2500006}
+  - {x: -1.2500005, y: 0.01, z: -1.2500006}
+  - {x: -1.2500005, y: 0.01, z: 1.2500006}
+  - {x: 1.2500005, y: 0.01, z: 1.2500006}
 --- !u!114 &114191828593803394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1669,6 +1654,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Valve.VR.SteamVR_Behaviour_PoseEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114281141277820412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1789773716298504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d71c8da601b92d439a31c3b43098520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerAction: {fileID: 11400000, guid: f6873df04f42ff3439afb1b7ae8e75d5, type: 2}
+  HandType: 2
 --- !u!114 &114293651427400790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1703,6 +1701,19 @@ MonoBehaviour:
   verbose: 0
   createComponents: 1
   updateDynamically: 1
+--- !u!114 &114440081492351926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1128031843892066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d71c8da601b92d439a31c3b43098520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerAction: {fileID: 11400000, guid: f6873df04f42ff3439afb1b7ae8e75d5, type: 2}
+  HandType: 1
 --- !u!114 &114450217327864956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1941,6 +1952,24 @@ MonoBehaviour:
   IntermediateTarget: {fileID: 4391678983450568}
   TargetChangeSpeed: 5
   ResetLookOverTime: 0
+--- !u!114 &114933795146091202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134456589013408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38ae0080da465e409500adf06c9e322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Head: {fileID: 4539508069253696}
+  HandLeft: {fileID: 4704947763306308}
+  HandRight: {fileID: 4503090363118144}
+  VRCamera: {fileID: 20479852545194772}
+  VRHandLeft: {fileID: 114450217327864956}
+  VRHandRight: {fileID: 114191828593803394}
+  OverrideClientServerFunctionality: 0
 --- !u!135 &135369633583199636
 SphereCollider:
   m_ObjectHideFlags: 1
