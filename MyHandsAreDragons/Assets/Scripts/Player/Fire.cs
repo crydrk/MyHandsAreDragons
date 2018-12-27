@@ -11,6 +11,8 @@ public class Fire : MonoBehaviour
 
     public SteamVR_Input_Sources HandType;
 
+    public HandController PlayerHand;
+
     /*
     private void OnEnable()
     {
@@ -43,12 +45,14 @@ public class Fire : MonoBehaviour
     {
         if (SteamVR_Input.__actions_default_in_GrabPinch.GetStateDown(HandType))
         {
-            OpenMouth();
+            //OpenMouth();
         }
+
+        PlayerHand.SetJawRotationRaw(SteamVR_Input.__actions_default_in_Squeeze.GetAxis(HandType));
     }
 
     private void OpenMouth()
     {
-        Debug.LogWarning("open mouth");
+        PlayerHand.Fire();
     }
 }
