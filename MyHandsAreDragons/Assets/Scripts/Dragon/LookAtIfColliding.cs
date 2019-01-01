@@ -7,20 +7,23 @@ using RootMotion.FinalIK;
 public class LookAtIfColliding : MonoBehaviour 
 {
 	public bool EnableLook = true;
-	public string StringToLookFor = "";
+
+    // Can identify a number of strings for objects to look at including players' heads and other dragons
+    public List<string> StringsToLookFor = new List<string>();
 
 	public Transform CurrentTarget;
 	public Transform NeutralTarget; // An object placed straight ahead
 	public Transform IntermediateTarget; // An object that lerps to the target position for smooth switching
 	public float TargetChangeSpeed = 5f; // The speed at which to lerp IntermediateTarget
 	public bool ResetLookOverTime = false; // Reset over time option as a safety net for if OnTriggerExit fails
+    public Transform MyDragonToDragonCollider; // Each hand has a collider for the other dragons to look at, but we don't want our own
 
 	private void OnTriggerEnter(Collider other)
 	{
 		// Check the name of the game object to see if it's something of interest (ie a player's face)
 		// It might be cleaner to do this with a tag, but I prefer strings on a project where I have other devs
 		// working with me - makes it more explicit and local within the GameObject.
-		if (other.gameObject.name.Contains(StringToLookFor))
+		if (ContainsStringToLookFor(other.gameObject))
 		{
 			CurrentTarget = other.transform;
 		}
@@ -58,6 +61,19 @@ public class LookAtIfColliding : MonoBehaviour
 
 		MoveIntermediateTarget ();
 	}
+
+    private bool ContainsStringToLookFor(GameObject source)
+    {
+        for (int i = 0; i < StringsToLookFor.Count; i++)
+        {
+            if (source.name.Contains(StringsToLookFor[i]) && source != MyDragonToDragonCollider)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
 	private void MoveIntermediateTarget()
 	{

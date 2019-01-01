@@ -53,6 +53,18 @@ public class AvatarController : NetworkBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (NetworkServer.connections.Count > 0)
+            {
+                Debug.LogWarning("This is the host.");
+            }
+            else
+            {
+                Debug.LogWarning("This is a client.");
+            }
+        }
+
         if (isLocalPlayer)
         {
             CmdSyncPlayerTransforms(Head.position, Head.rotation, HandLeft.position, HandLeft.rotation, HandRight.position, HandRight.rotation);
