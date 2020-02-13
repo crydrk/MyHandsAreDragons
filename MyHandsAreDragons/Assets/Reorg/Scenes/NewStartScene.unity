@@ -1167,6 +1167,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Other PC
       m_Image: {fileID: 0}
+    - m_Text: Other IP
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
