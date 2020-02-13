@@ -26,10 +26,8 @@ public class DragonNetworkManager : NetworkManager
 
     private void Connect()
     {
-        // Get information from PlayerPrefs about settings from previous scene "Intro"
+        // Get information from PlayerPrefs about settings from previous scene "NewStartScene"
         // This info is generated either from the ui on that screen or by the config txt files
-
-        int isServer = PlayerPrefs.GetInt("isServer");
 
         if (EnableDebug)
             Debug.Log("ipAddress: " + PlayerPrefs.GetString("ipAddress"));
@@ -43,31 +41,27 @@ public class DragonNetworkManager : NetworkManager
         if (EnableDebug)
             Debug.Log("port: " + networkPort);
 
-        if (isServer == 0)
+        if (PlayerPrefs.GetInt("playMode") == 0)
         {
+            if (EnableDebug)
+                Debug.Log("Starting HOST");
+
+            StartHost();
+        }
+        else if (PlayerPrefs.GetInt("playMode") == 1)
+        {
+            if (EnableDebug)
+                Debug.Log("Starting SERVER");
+
+            StartServer();
+        }
+        else if (PlayerPrefs.GetInt("playMode") == 2)
+        {
+            if (EnableDebug)
+                Debug.Log("Starting CLIENT");
+
             StartClient();
         }
-        else if (isServer == 1)
-        {
-            // Start server or host depending on if running tests or having a dedicated server
-            if (PlayerPrefs.GetInt("playMode") == 2)
-            {
 
-                StartServer();
-
-                isDedicatedServer = true;
-
-                if (EnableDebug)
-                    Debug.Log("Starting SERVER");
-
-            }
-            else
-            {
-                StartHost();
-
-                if (EnableDebug)
-                    Debug.Log("Starting HOST");
-            }
-        }
     }
 }

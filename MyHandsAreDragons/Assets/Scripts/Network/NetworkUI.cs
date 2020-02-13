@@ -58,11 +58,6 @@ public class NetworkUI : MonoBehaviour
 		int location = LocationDropdown.value;
 
 		int isServer = 0;
-		// If the mode is set to server or the server checkbox is checked
-		if (ServerToggle.isOn || mode > 0)
-		{
-			isServer = 1;
-		}
 
 		PlayerPrefs.SetInt ("playMode", mode);
 
@@ -88,7 +83,7 @@ public class NetworkUI : MonoBehaviour
 
         PlayerPrefs.SetInt ("isServer", isServer);
 
-		SceneManager.LoadScene ("MainScene");
+		SceneManager.LoadScene ("NewMainScene");
 	}
 
 	private void ReadIpAddress(string filename)
