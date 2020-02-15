@@ -60,11 +60,6 @@ public class Fire : MonoBehaviour
             Debug.LogWarning("Could not find DragonNetworkManager component");
             this.enabled = false;
         }
-
-        if (!dragonNetworkManager.isServer)
-        {
-            this.enabled = false;
-        }
     }
 
     private void Update()

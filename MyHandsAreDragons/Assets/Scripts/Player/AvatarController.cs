@@ -48,6 +48,8 @@ public class AvatarController : NetworkBehaviour
             VRCamera.enabled = false;
             VRHandLeft.enabled = false;
             VRHandRight.enabled = false;
+            HandLeft.gameObject.GetComponent<Fire>().enabled = false;
+            HandRight.gameObject.GetComponent<Fire>().enabled = false;
         }
     }
 
