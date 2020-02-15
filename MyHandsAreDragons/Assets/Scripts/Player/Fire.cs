@@ -13,6 +13,8 @@ public class Fire : MonoBehaviour
 
     public HandController PlayerHand;
 
+    private DragonNetworkManager dragonNetworkManager;
+
     /*
     private void OnEnable()
     {
@@ -40,6 +42,30 @@ public class Fire : MonoBehaviour
         }
     }
     */
+
+    private void Awake()
+    {
+        GameObject dragonNetworkManagerObj = GameObject.Find("NetworkManager");
+
+        if (!dragonNetworkManagerObj)
+        {
+            Debug.LogWarning("Could not find NetworkManager gameobject");
+            this.enabled = false;
+        }
+
+        dragonNetworkManager = dragonNetworkManagerObj.GetComponent<DragonNetworkManager>();
+
+        if (!dragonNetworkManager)
+        {
+            Debug.LogWarning("Could not find DragonNetworkManager component");
+            this.enabled = false;
+        }
+
+        if (!dragonNetworkManager.isServer)
+        {
+            this.enabled = false;
+        }
+    }
 
     private void Update()
     {

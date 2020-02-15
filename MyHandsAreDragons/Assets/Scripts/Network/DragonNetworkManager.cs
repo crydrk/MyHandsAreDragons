@@ -8,7 +8,8 @@ public class DragonNetworkManager : NetworkManager
     public static DragonNetworkManager instance = null;
     public bool EnableDebug = false;
 
-    private bool isDedicatedServer;
+    [HideInInspector]
+    public bool isServer;
 
     private void Start()
     {
@@ -46,6 +47,8 @@ public class DragonNetworkManager : NetworkManager
             if (EnableDebug)
                 Debug.Log("Starting HOST");
 
+            isServer = true;
+
             StartHost();
         }
         else if (PlayerPrefs.GetInt("playMode") == 1)
@@ -53,12 +56,16 @@ public class DragonNetworkManager : NetworkManager
             if (EnableDebug)
                 Debug.Log("Starting SERVER");
 
+            isServer = true;
+
             StartServer();
         }
         else if (PlayerPrefs.GetInt("playMode") == 2)
         {
             if (EnableDebug)
                 Debug.Log("Starting CLIENT");
+
+            isServer = false;
 
             StartClient();
         }
